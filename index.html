@@ -1,76 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sungmin Yun | Research · Publications · Education</title>
-  <meta name="description" content="Personal website of Sungmin Yun – research interests, publications, education, and professional experience." />
+  <title>Sungmin Yun</title>
+  <meta name="description"
+    content="Personal website of Sungmin Yun – research interests, publications, education, and professional experience." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #0b0d10; /* dark background */
+    :root {
+      --bg: #0b0d10;
+      /* dark background */
       --panel: #11151a;
       --text: #e7edf3;
       --muted: #9fb0c0;
       --line: #1f2937;
       --link: #7cc0ff;
-      --accent: #8b5cf6; /* violet */
+      --accent: #ffffff;
+      /* white */
     }
+
     @media (prefers-color-scheme: light) {
-      :root{
+      :root {
         --bg: #ffffff;
         --panel: #f7f8fb;
         --text: #0b0d10;
         --muted: #4b5563;
         --line: #e5e7eb;
         --link: #175fe6;
-        --accent: #6d28d9;
+        --accent: #000000;
       }
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
-      background: var(--bg); color: var(--text);
+
+    * {
+      box-sizing: border-box
     }
-    a{color: var(--link); text-decoration: none}
-    a:hover{text-decoration: underline}
-    .container{max-width: 1000px; margin: 0 auto; padding: 24px}
-    header{
-      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 85%, transparent);
+
+    html {
+      scroll-behavior: smooth
     }
-    nav{display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between}
-    nav .links a{padding:10px 12px; border-radius:10px}
-    nav .links a:hover{background: var(--panel)}
-    .hero{display:grid; grid-template-columns: 120px 1fr; gap:24px; align-items:center; padding: 24px 0}
-    .avatar{width:120px; height:120px; border-radius:24px; object-fit:cover; border:1px solid var(--line)}
-    h1{font-size: 32px; margin: 0 0 6px}
-    .tagline{color: var(--muted)}
-    section{margin: 36px 0; padding-top: 20px}
-    h2{font-size: 22px; margin: 0 0 16px; border-bottom:1px solid var(--line); padding-bottom: 8px}
-    .cards{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
-    .card{background: var(--panel); border:1px solid var(--line); padding:16px; border-radius:16px}
-    ul{margin:0; padding-left: 20px}
-    .pub-item{margin: 0 0 16px}
-    .label{display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--line); border-radius:999px; color: var(--muted)}
-    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
-    @media (max-width: 720px){
-      .hero{grid-template-columns: 1fr;}
-      .grid-2{grid-template-columns: 1fr}
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
-    footer{margin-top: 48px; padding: 32px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--line);
+
+    a {
+      color: var(--link);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    nav .links a {
+      padding: 10px 12px;
+      border-radius: 10px
+    }
+
+    nav .links a:hover {
+      background: var(--panel)
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 24px 0
+    }
+
+    .avatar {
+      width: 350px;
+      height: 350px;
+      border-radius: 32px;
+      object-fit: cover;
+      border: 1px solid var(--line)
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0 0 6px
+    }
+
+    .tagline {
+      color: var(--muted);
+    }
+
+    .hero>div {
+      padding-left: 250px;
+    }
+
+    section {
+      margin: 36px 0;
+      padding-top: 20px;
+      /* Prevent sticky header from overlapping anchor target */
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 0 0 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 16px;
+      border-radius: 16px
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px
+    }
+
+    .pub-item {
+      font-size: 17px;
+      margin: 0 0 16px
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 16px;
+      padding: 2px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted)
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    footer {
+      margin-top: 48px;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
       background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 80%, transparent), var(--panel));
       color: var(--text);
     }
-    .btn:hover{transform: translateY(-1px)}
-    .pill{display:inline-flex; gap:6px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background: var(--panel)}
-    .accent{color: var(--accent); font-weight: 700}
-    code, pre{background: var(--panel); border:1px solid var(--line); padding: 2px 6px; border-radius: 8px}
+
+    .btn:hover {
+      transform: translateY(-1px)
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel)
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    code,
+    pre {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 2px 6px;
+      border-radius: 8px
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -78,33 +233,32 @@
     "@type": "Person",
     "name": "Sungmin Yun",
     "affiliation": {"@type": "Organization", "name": "Seoul National University"},
-    "jobTitle": "Ph.D. Candidate",
-    "url": "https://username.github.io",
-    "email": "mailto:you@example.com",
+    "jobTitle": "Ph.D.",
+    "url": "https://sungmin-yun.github.io",
+    "email": "sungmin.yun11@gmail.com",
     "sameAs": [
-      "https://scholar.google.com/citations?user=YOUR_ID",
-      "https://orcid.org/0000-0000-0000-0000",
-      "https://github.com/username",
-      "https://linkedin.com/in/username"
+      "https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao",
+      "https://orcid.org/0000-0002-5682-2535",
+      "https://github.com/sungmin-yun",
+      "https://www.linkedin.com/in/sungmin-yun-6418b8264/"
     ]
   }
   </script>
 </head>
+
 <body>
   <header>
     <div class="container">
       <nav>
         <div class="links">
           <a href="#about">About</a>
-          <a href="#interests">Interests</a>
           <a href="#publications">Publications</a>
           <a href="#education">Education</a>
           <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="links">
-          <a class="btn" href="/cv.pdf">Download CV</a>
+          <a class="btn" href="CV_latest.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
         </div>
       </nav>
     </div>
@@ -112,22 +266,179 @@
 
   <main class="container">
     <section class="hero" id="about">
-      <img class="avatar" src="avatar.jpg" alt="Profile photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/120';" />
+      <img class="avatar" src="profile.JPG" alt="Profile photo"
+        onerror="this.onerror=null; this.src='https://via.placeholder.com/120';" />
       <div>
-        <h1><span class="accent">Sungmin Yun</span></h1>
-        <div class="tagline">Computer Architecture · AI Systems · Memory-Centric Computing</div>
+        <h1 style="font-size: 50px;"><span class="accent">Sungmin Yun</span></h1>
+        <div class="tagline" style="font-size: 20px;">Computer Architecture · Systems for AI</div>
         <p>
-          I research <strong>memory-centric architectures</strong> for efficient serving of large-scale AI models, particularly LLMs. My work covers the full system stack, including Op/B analysis of MoE/MLA-based LLMs, continuous batching, NDP/PNM, and CXL memory.
+          I am a postdoctoral researcher at Seoul National University, supervised by <a href="https://geniajh.github.io/"
+            target="_blank" rel="noopener noreferrer">Jung Ho Ahn</a>.
+          I completed my Ph.D. in Artificial Intelligence at Seoul National
+          University in 2025, and earned my B.S. in Science in Engineering from Yonsei University in 2020. <br><br>
+          
+          My ultimate goal is to reduce the computing cost of AI models and make them more accessible to everyone.
+          My research focuses on computer architectures and systems for AI, with an emphasis on the efficient serving of
+          large-scale AI models.
+          I have worked on various AI models, including recommender systems and graph neural networks, and my recent
+          work focuses
+          on large language models (LLMs).
+
         </p>
         <p>
-          <a class="pill" href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
-          <a class="pill" href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
-          <a class="pill" href="https://github.com/username">GitHub</a>
-          <a class="pill" href="https://linkedin.com/in/username">LinkedIn</a>
+          <a class="pill" href="https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao" target="_blank"
+            rel="noopener noreferrer">Google Scholar</a>
+          <a class="pill" href="https://orcid.org/0000-0002-5682-2535" target="_blank" rel="noopener noreferrer">ORCID</a>
+          <a class="pill" href="https://github.com/sungmin-yun" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="pill" href="https://www.linkedin.com/in/sungmin-yun-6418b8264/" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>
         </p>
       </div>
     </section>
-    <!-- rest of the content remains unchanged -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul>
+        <!-- ===== 2025 ===== -->
+        <li class="pub-item">
+          <strong><a href="https://arxiv.org/abs/2507.15465" target="_blank" rel="noopener noreferrer">The New LLM
+              Bottleneck: A
+              Systems
+              Perspective
+              on Latent Attention and Mixture-of-Experts</a></strong><br>
+          <span class="label">arXiv 2025</span><br>
+          <b>Sungmin Yun</b>, Seonyong Park, Hwayong Nam, Younjoo Lee, Gunjun Lee, Kwanhee Kyung, Sangpyo Kim, Nam Sung
+          Kim,
+          Jongmin Kim, Hyungyo Kim, Juhwan Cho, Seungmin Baek, Jung Ho Ahn
+        </li>
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11095626" target="_blank" rel="noopener noreferrer">SSD
+              Offloading for
+              LLM
+              Mixture-of-Experts Weights Considered Harmful in Energy Efficiency</a></strong><br>
+          <span class="label">IEEE CAL 2025</span><br>
+          Kwanhee Kyung, <b>Sungmin Yun</b>, Jung Ho Ahn
+        </li>
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11004422" target="_blank"
+              rel="noopener noreferrer">COSMOS: A CXL-Based
+              Full In-Memory System
+              for
+              Approximate Nearest Neighbor Search</a></strong><br>
+          <span class="label">IEEE CAL 2025</span><br>
+          Seoyoung Ko, Hyunjeong Shim, Wanju Doh, <b>Sungmin Yun</b>, Jinin So, Yongsuk Kwon, Sang-Soo Park, Si-Dong
+          Roh,
+          Minyong Yoon, Taeksang Song, Jung Ho Ahn
+        </li>
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10946801" target="_blank"
+              rel="noopener noreferrer">Anaheim: Architecture
+              and
+              Algorithms for Processing Fully Homomorphic Encryption in Memory</a></strong><br>
+          <span class="label">HPCA 2025</span><br>
+          Jongmin Kim, <b>Sungmin Yun</b>, Hyesung Ji, Wonseok Choi, Sangpyo Kim, Jung Ho Ahn
+        </li>
+
+        <!-- ===== 2024 ===== -->
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10764531" target="_blank"
+              rel="noopener noreferrer">Duplex: A Device for
+              Large Language Models
+              with
+              Mixture of Experts, Grouped Query Attention, and Continuous Batching</a></strong><br>
+          <span class="label">MICRO 2024</span><br>
+          <b>Sungmin Yun</b>, Kwanhee Kyung, Juhwan Cho, Jaewan Choi, Jongmin Kim, Byeongho Kim, Sukhan Lee, Kyomin
+          Sohn,
+          Jung Ho Ahn
+        </li>
+        <li class="pub-item">
+          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3650200.3656595" target="_blank" rel="noopener noreferrer">CLAY:
+              CXL-based Scalable
+              NDP
+              Architecture Accelerating Embedding Layers</a></strong><br>
+          <span class="label">ICS 2024</span><br>
+          <b>Sungmin Yun</b>, Hwayong Nam, Kwanhee Kyung, Jaehyun Park, Byeongho Kim, Yongsuk Kwon, Eojin Lee, Jung Ho
+          Ahn
+        </li>
+
+        <!-- ===== 2023 ===== -->
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10145835" target="_blank"
+              rel="noopener noreferrer">GraNDe: Efficient
+              Near-Data Processing Architecture for Graph Neural Networks</a></strong><br>
+          <span class="label">IEEE TC 2023</span><br>
+          <b>Sungmin Yun</b>, Hwayong Nam, Jaehyun Park, Byeongho Kim, Jung Ho Ahn, Eojin Lee
+        </li>
+
+        <!-- ===== 2022 ===== -->
+        <li class="pub-item">
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/9795257" target="_blank"
+              rel="noopener noreferrer">GraNDe: Near-Data
+              Processing Architecture with Adaptive Matrix Mapping for Graph Convolutional Networks</a></strong><br>
+          <span class="label">IEEE CAL 2022</span><br>
+          <b>Sungmin Yun</b>, Byeongho Kim, Jaehyun Park, Hwayong Nam, Jung Ho Ahn, Eojin Lee
+        </li>
+
+        <!-- ===== 2021 ===== -->
+        <li class="pub-item">
+          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3466752.3480080" target="_blank" rel="noopener noreferrer">TRiM:
+              Enhancing
+              Processor-Memory Interfaces with Scalable Tensor Reduction in Memory</a></strong><br>
+          <span class="label">MICRO 2021</span><br>
+          Jaehyun Park, Byeongho Kim, <b>Sungmin Yun</b>, Eojin Lee, Minsoo Rhu, Jung Ho Ahn
+        </li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <div class="edu-title">Education</div>
+      <degree>
+        Ph.D. in Artificial Intelligence @ Seoul National University, 2025<br>
+        B.S. of Science in Engineering @ Yonsei University, 2020<br>
+      </degree>
+    </section>
+    <style>
+      #education {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      #education .edu-title {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      #education degree {
+        list-style: none;
+        font-size: 1.3em;
+        margin-bottom: 40px;
+        display: block;
+      }
+    </style>
+    
+    <section id="contact">
+      <div class="contact-title">Contact</div>
+      <a href="mailto:sungmin.yun11@gmail.com">sungmin.yun11@gmail.com</a>
+    
+    
+    </section>
+    <style>
+      #contact {
+        text-align: center;
+        margin-top: 30px;
+      }
+    
+      #contact .contact-title {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    
+      #contact a {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+      }
+    </style>
   </main>
 
   <footer>
@@ -136,9 +447,8 @@
     </div>
   </footer>
   <script>
-    // Auto-fill year and last-updated date
-    document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('updated').textContent = new Date().toISOString().slice(0,10);
   </script>
 </body>
+
 </html>
