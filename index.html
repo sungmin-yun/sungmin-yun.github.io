@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sungmin Yun | Research · Publications · Education</title>
+  <meta name="description" content="Personal website of Sungmin Yun – research interests, publications, education, and professional experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0d10; /* dark background */
+      --panel: #11151a;
+      --text: #e7edf3;
+      --muted: #9fb0c0;
+      --line: #1f2937;
+      --link: #7cc0ff;
+      --accent: #8b5cf6; /* violet */
+    }
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg: #ffffff;
+        --panel: #f7f8fb;
+        --text: #0b0d10;
+        --muted: #4b5563;
+        --line: #e5e7eb;
+        --link: #175fe6;
+        --accent: #6d28d9;
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    a{color: var(--link); text-decoration: none}
+    a:hover{text-decoration: underline}
+    .container{max-width: 1000px; margin: 0 auto; padding: 24px}
+    header{
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 85%, transparent);
+    }
+    nav{display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    nav .links a{padding:10px 12px; border-radius:10px}
+    nav .links a:hover{background: var(--panel)}
+    .hero{display:grid; grid-template-columns: 120px 1fr; gap:24px; align-items:center; padding: 24px 0}
+    .avatar{width:120px; height:120px; border-radius:24px; object-fit:cover; border:1px solid var(--line)}
+    h1{font-size: 32px; margin: 0 0 6px}
+    .tagline{color: var(--muted)}
+    section{margin: 36px 0; padding-top: 20px}
+    h2{font-size: 22px; margin: 0 0 16px; border-bottom:1px solid var(--line); padding-bottom: 8px}
+    .cards{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px}
+    .card{background: var(--panel); border:1px solid var(--line); padding:16px; border-radius:16px}
+    ul{margin:0; padding-left: 20px}
+    .pub-item{margin: 0 0 16px}
+    .label{display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--line); border-radius:999px; color: var(--muted)}
+    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+    @media (max-width: 720px){
+      .hero{grid-template-columns: 1fr;}
+      .grid-2{grid-template-columns: 1fr}
+    }
+    footer{margin-top: 48px; padding: 32px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--line);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 80%, transparent), var(--panel));
+      color: var(--text);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .pill{display:inline-flex; gap:6px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background: var(--panel)}
+    .accent{color: var(--accent); font-weight: 700}
+    code, pre{background: var(--panel); border:1px solid var(--line); padding: 2px 6px; border-radius: 8px}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sungmin Yun",
+    "affiliation": {"@type": "Organization", "name": "Seoul National University"},
+    "jobTitle": "Ph.D. Candidate",
+    "url": "https://username.github.io",
+    "email": "mailto:you@example.com",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=YOUR_ID",
+      "https://orcid.org/0000-0000-0000-0000",
+      "https://github.com/username",
+      "https://linkedin.com/in/username"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#interests">Interests</a>
+          <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="links">
+          <a class="btn" href="/cv.pdf">Download CV</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="about">
+      <img class="avatar" src="avatar.jpg" alt="Profile photo" onerror="this.onerror=null; this.src='https://via.placeholder.com/120';" />
+      <div>
+        <h1><span class="accent">Sungmin Yun</span></h1>
+        <div class="tagline">Computer Architecture · AI Systems · Memory-Centric Computing</div>
+        <p>
+          I research <strong>memory-centric architectures</strong> for efficient serving of large-scale AI models, particularly LLMs. My work covers the full system stack, including Op/B analysis of MoE/MLA-based LLMs, continuous batching, NDP/PNM, and CXL memory.
+        </p>
+        <p>
+          <a class="pill" href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a>
+          <a class="pill" href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+          <a class="pill" href="https://github.com/username">GitHub</a>
+          <a class="pill" href="https://linkedin.com/in/username">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+    <!-- rest of the content remains unchanged -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>Last updated: <time id="updated">—</time></div>
+    </div>
+  </footer>
+  <script>
+    // Auto-fill year and last-updated date
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>
