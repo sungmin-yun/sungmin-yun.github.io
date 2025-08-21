@@ -152,6 +152,12 @@
       padding-left: 20px
     }
 
+    #publications ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
     .pub-item {
       font-size: 17px;
       margin: 0 0 16px
@@ -172,6 +178,47 @@
       gap: 16px
     }
 
+    .section-list .item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .section-list .item:last-child {
+      border-bottom: none;
+    }
+
+    .item-left {
+      min-width: 0;
+    }
+
+    .item-title {
+      font-weight: 700;
+    }
+
+    .item-subtle {
+      color: var(--muted);
+    }
+
+    .item-right {
+      white-space: nowrap;
+      color: var(--muted);
+      margin-left: 16px;
+    }
+
+    @media (max-width:720px) {
+      .section-list .item {
+        flex-direction: column;
+      }
+
+      .item-right {
+        margin-left: 0;
+      }
+    }
+
+
     @media (max-width: 720px) {
       .hero {
         grid-template-columns: 1fr;
@@ -186,7 +233,7 @@
         border-radius: 16px;
       }
 
-      .hero > div {
+      .hero>div {
         padding-left: 0;
         text-align: center;
       }
@@ -268,6 +315,8 @@
           <a href="#about">About</a>
           <a href="#publications">Publications</a>
           <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#awards">Awards</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="links">
@@ -285,13 +334,15 @@
         <h1 style="font-size: 50px;"><span class="accent">Sungmin Yun</span></h1>
         <div class="tagline" style="font-size: 20px;">Computer Architectures · Systems for AI</div>
         <p>
-          I am a postdoctoral researcher at Seoul National University (SNU) <a href="https://scale.snu.ac.kr/" , target="_blank"
-            rel="noopener noreferrer">SCALE Lab</a>.
-          I completed my Ph.D. in Artificial Intelligence at SNU, supervised by Prof.<a href="https://geniajh.github.io/"
-            target="_blank" rel="noopener noreferrer">Jung Ho Ahn</a>.
-            Before pursuing Ph.D., I received a B.S. in Integrated Information Technology from Yonsei University in 2020. <br><br>
-          
-          <b>My ultimate goal is to reduce the computing cost of AI models and make them more accessible to everyone.</b>
+          I am a postdoctoral researcher at Seoul National University (SNU) <a href="https://scale.snu.ac.kr/" ,
+            target="_blank" rel="noopener noreferrer">SCALE Lab</a>.
+          I completed my Ph.D. in Artificial Intelligence at SNU, supervised by Prof.<a
+            href="https://geniajh.github.io/" target="_blank" rel="noopener noreferrer">Jung Ho Ahn</a>.
+          Before pursuing Ph.D., I received a B.S. in Integrated Information Technology from Yonsei University in 2020.
+          <br><br>
+
+          <b>My ultimate goal is to reduce the computing cost of AI models and make them more accessible to
+            everyone.</b>
           My research focuses on computer architectures and systems for AI, with an emphasis on the efficient serving of
           large-scale AI models.
           I have worked on various AI models, including recommender systems and graph neural networks, and my recent
@@ -302,7 +353,8 @@
         <p>
           <a class="pill" href="https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao" target="_blank"
             rel="noopener noreferrer">Google Scholar</a>
-          <a class="pill" href="https://orcid.org/0000-0002-5682-2535" target="_blank" rel="noopener noreferrer">ORCID</a>
+          <a class="pill" href="https://orcid.org/0000-0002-5682-2535" target="_blank"
+            rel="noopener noreferrer">ORCID</a>
           <a class="pill" href="https://github.com/sungmin-yun" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="pill" href="https://www.linkedin.com/in/sungmin-yun-6418b8264/" target="_blank"
             rel="noopener noreferrer">LinkedIn</a>
@@ -325,7 +377,8 @@
           Jongmin Kim, Hyungyo Kim, Juhwan Cho, Seungmin Baek, Jung Ho Ahn
         </li>
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11095626" target="_blank" rel="noopener noreferrer">SSD
+          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11095626" target="_blank"
+              rel="noopener noreferrer">SSD
               Offloading for
               LLM
               Mixture-of-Experts Weights Considered Harmful in Energy Efficiency</a></strong><br>
@@ -365,7 +418,8 @@
           Jung Ho Ahn
         </li>
         <li class="pub-item">
-          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3650200.3656595" target="_blank" rel="noopener noreferrer">CLAY:
+          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3650200.3656595" target="_blank"
+              rel="noopener noreferrer">CLAY:
               CXL-based Scalable
               NDP
               Architecture Accelerating Embedding Layers</a></strong><br>
@@ -394,7 +448,8 @@
 
         <!-- ===== 2021 ===== -->
         <li class="pub-item">
-          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3466752.3480080" target="_blank" rel="noopener noreferrer">TRiM:
+          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3466752.3480080" target="_blank"
+              rel="noopener noreferrer">TRiM:
               Enhancing
               Processor-Memory Interfaces with Scalable Tensor Reduction in Memory</a></strong><br>
           <span class="label">MICRO 2021</span><br>
@@ -403,51 +458,117 @@
       </ul>
     </section>
 
-    <section id="education">
-      <div class="edu-title">Education</div>
-      <degree>
-        Ph.D. in Artificial Intelligence @ Seoul National University, 2025<br>
-        B.S. in Integrated Information Technology@ Yonsei University, 2020<br>
-      </degree>
+    <section id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Ph.D. in Artificial Intelligence</div>
+            <div class="item-subtle">Seoul National University</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2020-09">Sep 2020</time> - <time datetime="2025-08">Aug 2025</time>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">B.S. in Integrated Information Technology</div>
+            <div class="item-subtle">Yonsei University</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2017-03">Mar 2017</time> - <time datetime="2020-02">Feb 2020</time>
+          </div>
+        </div>
+      </div>
     </section>
-    <style>
-      #education {
-        text-align: center;
-        margin-top: 30px;
-      }
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Postdoctoral Researcher</div>
+            <div class="item-subtle">Seoul National University</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2025-09">Sep 2025</time> – Present
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Samsung Electronics Internship</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2023-03">Mar 2023</time> – <time datetime="2023-08">Aug 2023</time>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Mandatory Military Service as Professional Research Personnel</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2023-09">Sep 2023</time> – Present (expected <time datetime="2026-08">Aug 2026</time>)
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="awards" aria-labelledby="awards-title">
+      <h2 id="awards-title">Awards</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Best of CAL Award</div>
+            <div class="item-subtle">
+              29th IEEE International Symposium on High-Performance Computer Architecture
+            </div>
+          </div>
+          <div class="item-right">
+            <time datetime="2023-02">Feb 2023</time>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="invited" aria-labelledby="invited-title">
+      <h2 id="invited-title">Invited Presentations</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Samsung AI Forum</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2023-11">Nov 2023</time>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Best of CAL session at IEEE International Symposium on High-Performance Computer
+              Architecture</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2023-02">Feb 2023</time>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      #education .edu-title {
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      #education degree {
-        list-style: none;
-        font-size: 1.3em;
-        margin-bottom: 40px;
-        display: block;
-      }
-    </style>
-    
     <section id="contact">
       <div class="contact-title">Contact</div>
       <a href="mailto:sungmin.yun11@gmail.com">sungmin.yun11@gmail.com</a>
-    
-    
+
+
     </section>
     <style>
       #contact {
         text-align: center;
         margin-top: 30px;
       }
-    
+
       #contact .contact-title {
         font-size: 2em;
         font-weight: bold;
         margin-bottom: 20px;
       }
-    
+
       #contact a {
         font-size: 1.3em;
         margin-bottom: 40px;
@@ -460,9 +581,18 @@
       <div>Last updated: <time id="updated">—</time></div>
     </div>
   </footer>
+
+  
   <script>
-    document.getElementById('updated').textContent = new Date().toISOString().slice(0,10);
+    document.getElementById('updated').textContent =
+      new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
   </script>
+
+
 </body>
 
 </html>
