@@ -6,296 +6,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sungmin Yun</title>
   <meta name="description"
-    content="Personal website of Sungmin Yun – research interests, publications, education, and professional experience." />
+    content="Sungmin Yun, Senior Deep Learning Performance Architect at NVIDIA. Computer architectures, AI acceleration, publications, and experience." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0d10;
-      /* dark background */
-      --panel: #11151a;
+      --panel: #141b25;
       --text: #e7edf3;
-      --muted: #9fb0c0;
-      --line: #3e454e;
-      --link: #7cc0ff;
+      --muted: #b0bdcc;
+      --line: #343e4b;
+      --link: #8abfff;
       --accent: #ffffff;
-      /* white */
     }
 
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #ffffff;
-        --panel: #f7f8fb;
-        --text: #0b0d10;
-        --muted: #4b5563;
-        --line: #d3d0d0;
-        --link: #175fe6;
-        --accent: #000000;
+        --panel: #f3f6fb;
+        --text: #17202d;
+        --muted: #4c596c;
+        --line: #dce2eb;
+        --link: #225bb8;
+        --accent: #17202d;
       }
     }
 
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-size: 18px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
-
-    a {
-      color: var(--link);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: underline
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
-    }
-
-    nav {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between
-    }
-
-    nav .links a {
-      padding: 10px 12px;
-      border-radius: 10px
-    }
-
-    nav .links a:hover {
-      background: var(--panel)
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 24px 32px; }
 
     .hero {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 24px;
-      align-items: center;
-      padding: 24px 0
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+      padding: 24px 0;
+      margin-top: 44px;
     }
+    .avatar { width: 300px; max-width: 100%; height: 300px; border-radius: 20px; object-fit: cover; border: 1px solid var(--line); }
+    .hero > div { min-width: 0; }
+    h1 { font-size: 46px; line-height: 1.2; letter-spacing: -1.2px; margin: 0 0 14px; }
+    .accent { color: var(--accent); font-weight: 700; }
+    .tagline { color: var(--muted); font-size: 20px; line-height: 1.5; }
+    .hero p { margin: 24px 0; }
+    .hero p:last-child { margin-bottom: 0; }
+    .profile-column { width: 100%; }
+    .profile-column .avatar { display: block; }
+    .profile-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 18px; }
+    .profile-link { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 9px 0; border-radius: 8px; font-size: 14px; line-height: 1.5; white-space: nowrap; }
+    .profile-link:hover { background: var(--panel); text-decoration: none; }
+    .profile-icon { width: 25px; height: 25px; fill: currentColor; flex-shrink: 0; }
+    .btn, .pill { display: inline-flex; align-items: center; border: 1px solid var(--line); background: var(--panel); }
+    .btn { padding: 10px 14px; border-radius: 8px; color: var(--text); }
+    .profile-cv { width: 100%; justify-content: center; gap: 9px; margin-top: 16px; padding: 10px 16px; font-size: 18px; font-weight: 500; line-height: 1.5; }
+    .profile-cv svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .profile-cv:hover { border-color: var(--link); color: var(--link); text-decoration: none; }
+    .profile-emails { display: grid; gap: 10px; width: fit-content; max-width: 100%; margin: 6px auto 0; }
+    .profile-emails a { display: flex; align-items: center; gap: 10px; padding: 4px 0; color: var(--text); font-family: inherit; font-size: 20px; font-weight: 500; letter-spacing: -0.2px; line-height: 1.5; }
+    .profile-emails a:hover { color: var(--link); }
+    .profile-emails svg { width: 20px; height: 20px; flex: 0 0 20px; color: var(--link); }
+    .profile-emails span { min-width: 0; overflow-wrap: anywhere; }
+    .pill { padding: 6px 12px; border-radius: 999px; font-size: 15px; }
 
-    .avatar {
-      width: 350px;
-      height: 350px;
-      border-radius: 32px;
-      object-fit: cover;
-      border: 1px solid var(--line)
-    }
-
-    h1 {
-      font-size: 32px;
-      margin: 0 0 6px
-    }
-
-    .tagline {
-      color: var(--muted);
-    }
-
-    .hero>div {
-      padding-left: 250px;
-    }
-
-    section {
-      margin: 36px 0;
-      padding-top: 20px;
-      /* Prevent sticky header from overlapping anchor target */
-      scroll-margin-top: 80px;
-    }
-
-    h2 {
-      font-size: 22px;
-      margin: 0 0 16px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 8px
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 16px;
-      border-radius: 16px
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 20px
-    }
-
-    #publications ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
-    .pub-item {
-      font-size: 17px;
-      margin: 0 0 16px
-    }
-
-    .label {
-      display: inline-block;
-      font-size: 16px;
-      padding: 2px 8px;
-      border: 2px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted)
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px
-    }
-
-    .section-list .item {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-    }
-
-    .section-list .item:last-child {
-      border-bottom: none;
-    }
-
-    .item-left {
-      min-width: 0;
-    }
-
-    .item-title {
+    /* Each section spans the full content width, in the original order. */
+    main > section { width: 100%; margin: 64px 0; padding-top: 12px; scroll-margin-top: 20px; }
+    main > .hero { margin-top: 44px; padding-top: 24px; }
+    h2, .contact-title {
+      font-size: 26px;
       font-weight: 700;
-    }
-
-    .item-subtle {
-      color: var(--muted);
-    }
-
-    .item-right {
-      white-space: nowrap;
-      color: var(--muted);
-      margin-left: 16px;
-    }
-
-    @media (max-width:720px) {
-      .section-list .item {
-        flex-direction: column;
-      }
-
-      .item-right {
-        margin-left: 0;
-      }
-    }
-
-
-    @media (max-width: 720px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        justify-items: center;
-        padding: 16px 0;
-      }
-
-      .avatar {
-        width: 160px;
-        height: 160px;
-        border-radius: 16px;
-      }
-
-      .hero>div {
-        padding-left: 0;
-        text-align: center;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr
-      }
-    }
-
-    footer {
-      margin-top: 48px;
-      padding: 32px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 80%, transparent), var(--panel));
-      color: var(--text);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px)
-    }
-
-    .pill {
-      display: inline-flex;
-      gap: 6px;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--panel)
-    }
-
-    .accent {
-      color: var(--accent);
-      font-weight: 700
-    }
-
-    code,
-    pre {
+      line-height: 1.4;
+      margin: 0 0 20px;
+      padding: 12px 16px;
       background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 2px 6px;
-      border-radius: 8px
+      border-left: 3px solid var(--link);
+      border-bottom: 1px solid var(--line);
+      border-radius: 0 5px 5px 0;
     }
+    #publications h2 { margin-bottom: 4px; }
+    #publications ul { list-style: none; padding: 0; margin: 0; }
+    .pub-item { margin: 0; padding: 30px 18px; border-bottom: 1px solid var(--line); }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .label { display: inline-block; font-size: 15px; font-weight: 700; line-height: 1.5; padding: 4px 11px; border: 1px solid color-mix(in srgb, var(--link) 35%, var(--bg)); border-radius: 5px; background: color-mix(in srgb, var(--link) 12%, var(--bg)); color: var(--link); }
+    .pub-note { font-size: 15px; font-weight: 500; color: var(--link); }
+    .pub-year { font-size: 16px; font-weight: 500; color: var(--muted); }
+    .pub-title { margin: 0; font-size: 21px; line-height: 1.55; font-weight: 700; letter-spacing: -0.2px; }
+    .pub-authors { margin: 12px 0 0; font-size: 17px; line-height: 1.85; color: var(--muted); }
+    .pub-authors b { color: var(--text); font-weight: 700; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--link) 65%, var(--bg)); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+    .section-list .item { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; padding: 19px 18px; border-bottom: 1px solid var(--line); }
+    .section-list .item:last-child { border-bottom: none; }
+    .item-left { min-width: 0; }
+    .item-title { font-size: 18px; font-weight: 600; line-height: 1.7; }
+    .item-subtle { color: var(--muted); font-size: 17px; margin-top: 4px; }
+    .item-right { color: var(--muted); flex-shrink: 0; max-width: 42%; font-size: 16px; padding-top: 2px; }
+    .service-group .item-left { width: 100%; }
+    .service-heading { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.7; color: var(--link); }
+    .reviewer-list { list-style: none; margin: 12px 0 0; padding: 0; }
+    .reviewer-list li { position: relative; padding: 12px 12px 12px 30px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 18px; line-height: 1.75; }
+    .reviewer-list li:last-child { border-bottom: 0; }
+    .reviewer-list li::before { content: ''; position: absolute; left: 12px; top: 24px; width: 5px; height: 5px; border-radius: 50%; background: var(--link); }
+    footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+
+    @media (min-width: 721px) and (max-width: 1000px) {
+      .hero { grid-template-columns: 240px minmax(0, 1fr); gap: 28px; }
+      .avatar { width: 240px; height: 240px; }
+      .profile-emails a { font-size: 18px; }
+      .section-list .item { flex-wrap: wrap; gap: 6px 20px; }
+      .item-right { max-width: 100%; }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 17px; }
+      .container { padding: 20px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; justify-items: center; padding: 16px 0; }
+      .avatar { width: 180px; height: 180px; border-radius: 16px; }
+      h1, .tagline { text-align: center; }
+      h1 { font-size: 38px; }
+      .tagline { font-size: 19px; }
+      .profile-column { width: min(300px, 100%); }
+      .profile-column .avatar { margin-inline: auto; }
+      .pill { font-size: 14px; }
+      main > section { margin: 44px 0; scroll-margin-top: 20px; }
+      main > .hero { margin-top: 26px; padding-top: 16px; }
+      h2, .contact-title { font-size: 24px; padding: 11px 13px; }
+      .pub-item { padding: 26px 12px; }
+      .pub-title { font-size: 20px; }
+      .pub-authors { font-size: 16px; }
+      .pub-meta { gap: 10px; }
+      .section-list .item { flex-direction: column; gap: 6px; padding-inline: 12px; }
+      .item-title { font-size: 18px; }
+      .item-subtle { font-size: 16px; }
+      .item-right { max-width: 100%; font-size: 16px; padding-top: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Sungmin Yun",
-    "affiliation": {"@type": "Organization", "name": "Seoul National University"},
-    "jobTitle": "Ph.D.",
-    "url": "https://sungmin-yun.github.io",
+    "affiliation": {"@type": "Organization", "name": "NVIDIA"},
+    "jobTitle": "Senior Deep Learning Performance Architect",
+    "url": "https://sungminyun.me",
     "email": "sungmin.yun11@gmail.com",
     "sameAs": [
       "https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao",
@@ -308,147 +174,160 @@
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="links">
-          <a href="#about">About</a>
-          <a href="#publications">Publications</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#awards">Awards</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="links">
-          <a class="btn" href="Sungmin_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
   <main class="container">
     <section class="hero" id="about">
-      <img class="avatar" src="profile.JPG" alt="Profile photo"
-        onerror="this.onerror=null; this.src='https://via.placeholder.com/120';" />
+      <div class="profile-column">
+        <img class="avatar" src="profile.JPG" alt="Sungmin Yun" width="300" height="300" />
+        <div class="profile-links" aria-label="Research and social profiles">
+          <a class="profile-link" href="https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao" target="_blank"
+            rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+            <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2 0 10l12 8 12-8L12 2Z"/><path d="M5 15v4c4 4 10 4 14 0v-4l-7 4.7L5 15Z"/></svg>
+            <span>Scholar</span>
+          </a>
+          <a class="profile-link" href="https://github.com/sungmin-yun" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.3 4.8 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a class="profile-link" href="https://www.linkedin.com/in/sungmin-yun-6418b8264/" target="_blank"
+            rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 2h-17C2.7 2 2 2.7 2 3.5v17c0 .8.7 1.5 1.5 1.5h17c.8 0 1.5-.7 1.5-1.5v-17c0-.8-.7-1.5-1.5-1.5ZM8 19H5V9h3v10ZM6.5 7.6a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.3c0-1.3-.5-2-1.5-2s-1.8.7-1.8 2V19h-3V9h2.9v1.4c.5-.8 1.5-1.6 3-1.6 2.3 0 3.4 1.5 3.4 4.2v6Z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="profile-link" href="https://orcid.org/0000-0002-5682-2535" target="_blank"
+            rel="noopener noreferrer" aria-label="ORCID" title="ORCID">
+            <svg class="profile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="11"/><g fill="var(--bg)"><circle cx="6.6" cy="6.7" r="1.1"/><path d="M5.7 9h1.8v10H5.7zM10 5.7h4.1c4.4 0 6.2 3 6.2 6.5s-1.8 6.8-6.2 6.8H10V5.7Zm1.9 1.8v9.7H14c3.1 0 4.4-2.2 4.4-5s-1.3-4.7-4.4-4.7h-2.1Z"/></g></svg>
+            <span>ORCID</span>
+          </a>
+        </div>
+        <div class="profile-emails" aria-label="Email addresses">
+          <a href="mailto:sungminy@nvidia.com">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+            <span>sungminy@nvidia.com</span>
+          </a>
+          <a href="mailto:sungmin.yun11@gmail.com">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+            <span>sungmin.yun11@gmail.com</span>
+          </a>
+        </div>
+        <a class="btn profile-cv" href="Sungmin_CV.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></svg>
+          Download CV
+        </a>
+      </div>
       <div>
-        <h1 style="font-size: 50px;"><span class="accent">Sungmin Yun</span></h1>
-        <div class="tagline" style="font-size: 20px;">Computer Architecture · Systems for AI</div>
+        <h1><span class="accent">Sungmin Yun</span></h1>
+        <div class="tagline">Computer Architecture · Systems for AI</div>
         <p>
-          <b>My ultimate goal is to reduce the computing cost of AI models and make them more accessible to
-            everyone.</b>
-          My research focuses on computer architectures and systems for AI, with an emphasis on the efficient serving of
-          large-scale AI models.
-          I have worked on various AI models, including recommender systems and graph neural networks, and my recent
-          work focuses
-          on large language models (LLMs).
-
-          <br><br>
-
-          I am a postdoctoral researcher at Seoul National University (SNU).
-          I received my Ph.D. in Artificial Intelligence from SNU, under the supervision of Prof.<a href="https://geniajh.github.io/" target="_blank" rel="noopener noreferrer">Jung Ho Ahn</a> in the <a href="https://scale.snu.ac.kr/", target="_blank" rel="noopener noreferrer">SCALE Lab</a>.
-          Before pursuing Ph.D., I received a B.S. in Integrated Information Technology from Yonsei University in 2020.
-          
+          I am a <b>Senior Deep Learning Performance Architect at NVIDIA</b>, focusing on AI acceleration, performance analysis, and optimization.
+          My work aims to maximize the performance and efficiency of AI systems through hardware–software co-design.
         </p>
         <p>
-          <a class="pill" href="https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao" target="_blank"
-            rel="noopener noreferrer">Google Scholar</a>
-          <a class="pill" href="https://orcid.org/0000-0002-5682-2535" target="_blank"
-            rel="noopener noreferrer">ORCID</a>
-          <a class="pill" href="https://github.com/sungmin-yun" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="pill" href="https://www.linkedin.com/in/sungmin-yun-6418b8264/" target="_blank"
-            rel="noopener noreferrer">LinkedIn</a>
+          My experience spans accelerator design, hardware profiling, performance modeling, and kernel programming for modern AI architectures, including MoE, MLA, RAG, and diffusion.
+          My research has focused on efficient LLM serving, Multi-LoRA inference, and RAG pipelines.
+          I also developed <a href="https://github.com/scale-snu/LLMSimulator" target="_blank" rel="noopener noreferrer">LLMSimulator</a>, an open-source end-to-end LLM performance simulator.
+        </p>
+        <p>
+          Previously, I was a postdoctoral researcher at Seoul National University (SNU).
+          I received my Ph.D. in Artificial Intelligence from SNU, under the supervision of Prof. <a href="https://geniajh.github.io/" target="_blank" rel="noopener noreferrer">Jung Ho Ahn</a> in the <a href="https://scale.snu.ac.kr/" target="_blank" rel="noopener noreferrer">SCALE Lab</a>.
+          I received my B.S. in Integrated Information Technology from Yonsei University in 2020.
         </p>
       </div>
     </section>
     <section id="publications">
       <h2>Publications</h2>
       <ul>
-        <!-- ===== 2025 ===== -->
+        <!-- ===== 2026 ===== -->
         <li class="pub-item">
-          <strong><a href="https://arxiv.org/abs/2507.15465" target="_blank" rel="noopener noreferrer">Rethinking LLM Inference Bottlenecks: Insights from Latent Attention and Mixture-of-Experts</a></strong><br>
-          <span class="label">arXiv 2026</span><br>
-          <b>Sungmin Yun</b>, Seonyong Park, Hwayong Nam, Younjoo Lee, Gunjun Lee, Kwanhee Kyung, Sangpyo Kim, Nam Sung
-          Kim,
-          Jongmin Kim, Hyungyo Kim, Juhwan Cho, Seungmin Baek, Jung Ho Ahn
+          <div class="pub-meta"><span class="label">ICS</span><span class="pub-year">2026</span><span class="pub-note">Co-corresponding authors</span></div>
+          <h3 class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3797905.3800522" target="_blank" rel="noopener noreferrer">Clone: A Collaborative Multi-device System for Retrieval-Augmented Generation over CXL</a></h3>
+          <p class="pub-authors">Seoyoung Ko, Wanju Doh, Eojin Na, Hyunjeong Shim, <b>Sungmin Yun</b>, Jinin So, Yongsuk Kwon, Sang-Soo Park, Si-Dong Roh, Minyong Yoon, Taeksang Song, Eojin Lee, Jung Ho Ahn</p>
         </li>
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11095626" target="_blank"
+          <div class="pub-meta"><span class="label">arXiv</span><span class="pub-year">2026</span><span class="pub-note">First author</span></div>
+          <h3 class="pub-title"><a href="https://arxiv.org/abs/2507.15465" target="_blank" rel="noopener noreferrer">Rethinking LLM Inference Bottlenecks: Insights from Latent Attention and Mixture-of-Experts</a></h3>
+          <p class="pub-authors"><b>Sungmin Yun</b>, Seonyong Park, Hwayong Nam, Younjoo Lee, Gunjun Lee, Kwanhee Kyung, Sangpyo Kim, Nam Sung
+          Kim,
+          Jongmin Kim, Hyungyo Kim, Juhwan Cho, Seungmin Baek, Jung Ho Ahn</p>
+        </li>
+        <!-- ===== 2025 ===== -->
+        <li class="pub-item">
+          <div class="pub-meta"><span class="label">IEEE CAL</span><span class="pub-year">2025</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/11095626" target="_blank"
               rel="noopener noreferrer">SSD
               Offloading for
               LLM
-              Mixture-of-Experts Weights Considered Harmful in Energy Efficiency</a></strong><br>
-          <span class="label">IEEE CAL 2025</span><br>
-          Kwanhee Kyung, <b>Sungmin Yun</b>, Jung Ho Ahn
+              Mixture-of-Experts Weights Considered Harmful in Energy Efficiency</a></h3>
+          <p class="pub-authors">Kwanhee Kyung, <b>Sungmin Yun</b>, Jung Ho Ahn</p>
         </li>
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/11004422" target="_blank"
+          <div class="pub-meta"><span class="label">IEEE CAL</span><span class="pub-year">2025</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/11004422" target="_blank"
               rel="noopener noreferrer">COSMOS: A CXL-Based
               Full In-Memory System
               for
-              Approximate Nearest Neighbor Search</a></strong><br>
-          <span class="label">IEEE CAL 2025</span><br>
-          Seoyoung Ko, Hyunjeong Shim, Wanju Doh, <b>Sungmin Yun</b>, Jinin So, Yongsuk Kwon, Sang-Soo Park, Si-Dong
+              Approximate Nearest Neighbor Search</a></h3>
+          <p class="pub-authors">Seoyoung Ko, Hyunjeong Shim, Wanju Doh, <b>Sungmin Yun</b>, Jinin So, Yongsuk Kwon, Sang-Soo Park, Si-Dong
           Roh,
-          Minyong Yoon, Taeksang Song, Jung Ho Ahn
+          Minyong Yoon, Taeksang Song, Jung Ho Ahn</p>
         </li>
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10946801" target="_blank"
+          <div class="pub-meta"><span class="label">HPCA</span><span class="pub-year">2025</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10946801" target="_blank"
               rel="noopener noreferrer">Anaheim: Architecture
               and
-              Algorithms for Processing Fully Homomorphic Encryption in Memory</a></strong><br>
-          <span class="label">HPCA 2025</span><br>
-          Jongmin Kim, <b>Sungmin Yun</b>, Hyesung Ji, Wonseok Choi, Sangpyo Kim, Jung Ho Ahn
+              Algorithms for Processing Fully Homomorphic Encryption in Memory</a></h3>
+          <p class="pub-authors">Jongmin Kim, <b>Sungmin Yun</b>, Hyesung Ji, Wonseok Choi, Sangpyo Kim, Jung Ho Ahn</p>
         </li>
 
         <!-- ===== 2024 ===== -->
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10764531" target="_blank"
+          <div class="pub-meta"><span class="label">MICRO</span><span class="pub-year">2024</span><span class="pub-note">First author</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10764531" target="_blank"
               rel="noopener noreferrer">Duplex: A Device for
               Large Language Models
               with
-              Mixture of Experts, Grouped Query Attention, and Continuous Batching</a></strong><br>
-          <span class="label">MICRO 2024</span><br>
-          <b>Sungmin Yun</b>, Kwanhee Kyung, Juhwan Cho, Jaewan Choi, Jongmin Kim, Byeongho Kim, Sukhan Lee, Kyomin
+              Mixture of Experts, Grouped Query Attention, and Continuous Batching</a></h3>
+          <p class="pub-authors"><b>Sungmin Yun</b>, Kwanhee Kyung, Juhwan Cho, Jaewan Choi, Jongmin Kim, Byeongho Kim, Sukhan Lee, Kyomin
           Sohn,
-          Jung Ho Ahn
+          Jung Ho Ahn</p>
         </li>
         <li class="pub-item">
-          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3650200.3656595" target="_blank"
+          <div class="pub-meta"><span class="label">ICS</span><span class="pub-year">2024</span><span class="pub-note">First author</span></div>
+          <h3 class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3650200.3656595" target="_blank"
               rel="noopener noreferrer">CLAY:
               CXL-based Scalable
               NDP
-              Architecture Accelerating Embedding Layers</a></strong><br>
-          <span class="label">ICS 2024</span><br>
-          <b>Sungmin Yun</b>, Hwayong Nam, Kwanhee Kyung, Jaehyun Park, Byeongho Kim, Yongsuk Kwon, Eojin Lee, Jung Ho
-          Ahn
+              Architecture Accelerating Embedding Layers</a></h3>
+          <p class="pub-authors"><b>Sungmin Yun</b>, Hwayong Nam, Kwanhee Kyung, Jaehyun Park, Byeongho Kim, Yongsuk Kwon, Eojin Lee, Jung Ho
+          Ahn</p>
         </li>
 
         <!-- ===== 2023 ===== -->
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/10145835" target="_blank"
+          <div class="pub-meta"><span class="label">IEEE TC</span><span class="pub-year">2023</span><span class="pub-note">First author</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10145835" target="_blank"
               rel="noopener noreferrer">GraNDe: Efficient
-              Near-Data Processing Architecture for Graph Neural Networks</a></strong><br>
-          <span class="label">IEEE TC 2023</span><br>
-          <b>Sungmin Yun</b>, Hwayong Nam, Jaehyun Park, Byeongho Kim, Jung Ho Ahn, Eojin Lee
+              Near-Data Processing Architecture for Graph Neural Networks</a></h3>
+          <p class="pub-authors"><b>Sungmin Yun</b>, Hwayong Nam, Jaehyun Park, Byeongho Kim, Jung Ho Ahn, Eojin Lee</p>
         </li>
 
         <!-- ===== 2022 ===== -->
         <li class="pub-item">
-          <strong><a href="https://ieeexplore.ieee.org/abstract/document/9795257" target="_blank"
+          <div class="pub-meta"><span class="label">IEEE CAL</span><span class="pub-year">2022</span><span class="pub-note">First author</span></div>
+          <h3 class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9795257" target="_blank"
               rel="noopener noreferrer">GraNDe: Near-Data
-              Processing Architecture with Adaptive Matrix Mapping for Graph Convolutional Networks</a></strong><br>
-          <span class="label">IEEE CAL 2022</span><br>
-          <b>Sungmin Yun</b>, Byeongho Kim, Jaehyun Park, Hwayong Nam, Jung Ho Ahn, Eojin Lee
+              Processing Architecture with Adaptive Matrix Mapping for Graph Convolutional Networks</a></h3>
+          <p class="pub-authors"><b>Sungmin Yun</b>, Byeongho Kim, Jaehyun Park, Hwayong Nam, Jung Ho Ahn, Eojin Lee</p>
         </li>
 
         <!-- ===== 2021 ===== -->
         <li class="pub-item">
-          <strong><a href="https://dl.acm.org/doi/abs/10.1145/3466752.3480080" target="_blank"
+          <div class="pub-meta"><span class="label">MICRO</span><span class="pub-year">2021</span></div>
+          <h3 class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3466752.3480080" target="_blank"
               rel="noopener noreferrer">TRiM:
               Enhancing
-              Processor-Memory Interfaces with Scalable Tensor Reduction in Memory</a></strong><br>
-          <span class="label">MICRO 2021</span><br>
-          Jaehyun Park, Byeongho Kim, <b>Sungmin Yun</b>, Eojin Lee, Minsoo Rhu, Jung Ho Ahn
+              Processor-Memory Interfaces with Scalable Tensor Reduction in Memory</a></h3>
+          <p class="pub-authors">Jaehyun Park, Byeongho Kim, <b>Sungmin Yun</b>, Eojin Lee, Minsoo Rhu, Jung Ho Ahn</p>
         </li>
       </ul>
     </section>
@@ -462,7 +341,7 @@
             <div class="item-subtle">Seoul National University</div>
           </div>
           <div class="item-right">
-            <time datetime="2020-09">Sep 2020</time> - <time datetime="2025-08">Aug 2025</time>
+            <time datetime="2020-08">Aug 2020</time> - <time datetime="2025-08">Aug 2025</time>
           </div>
         </div>
 
@@ -482,34 +361,30 @@
       <div class="section-list">
         <div class="item">
           <div class="item-left">
+            <div class="item-title">Senior Deep Learning Performance Architect</div>
+            <div class="item-subtle">NVIDIA<br>Deep learning application performance analysis.</div>
+          </div>
+          <div class="item-right"><time datetime="2026-09">Sep 2026</time> – Present</div>
+        </div>
+        <div class="item">
+          <div class="item-left">
             <div class="item-title">Postdoctoral Researcher</div>
-            <div class="item-subtle">Seoul National University</div>
+            <div class="item-subtle">Seoul National University<br>Led research on LLM serving systems, Multi-LoRA inference, and RAG pipeline acceleration.</div>
           </div>
-          <div class="item-right">
-            <time datetime="2025-09">Sep 2025</time> – Present
-          </div>
+          <div class="item-right"><time datetime="2025-09">Sep 2025</time> – <time datetime="2026-09">Sep 2026</time></div>
         </div>
         <div class="item">
           <div class="item-left">
             <div class="item-title">Samsung Electronics Internship</div>
+            <div class="item-subtle">Designed and implemented an HBM-PIM GEMV controller in RTL and developed the architecture behind Duplex (MICRO 2024).</div>
           </div>
-          <div class="item-right">
-            <time datetime="2023-03">Mar 2023</time> – <time datetime="2023-08">Aug 2023</time>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">Mandatory Military Service as Professional Research Personnel</div>
-          </div>
-          <div class="item-right">
-            <time datetime="2023-09">Sep 2023</time> – Present (expected <time datetime="2026-08">Aug 2026</time>)
-          </div>
+          <div class="item-right"><time datetime="2023-03">Mar 2023</time> – <time datetime="2023-08">Aug 2023</time></div>
         </div>
       </div>
     </section>
 
 
-    <section id="awards" aria-labelledby="awards-title">
+<section id="awards" aria-labelledby="awards-title">
       <h2 id="awards-title">Awards</h2>
       <div class="section-list">
         <div class="item">
@@ -543,6 +418,7 @@
         <div class="item">
           <div class="item-left">
             <div class="item-title">Samsung AI Forum</div>
+            <div class="item-subtle">Poster presentation</div>
           </div>
           <div class="item-right">
             <time datetime="2023-11">Nov 2023</time>
@@ -552,6 +428,7 @@
           <div class="item-left">
             <div class="item-title">Best of CAL session at IEEE International Symposium on High-Performance Computer
               Architecture</div>
+            <div class="item-subtle">Oral presentation</div>
           </div>
           <div class="item-right">
             <time datetime="2023-02">Feb 2023</time>
@@ -560,46 +437,84 @@
       </div>
     </section>
 
-    <section id="contact">
-      <div class="contact-title">Contact</div>
-      <a href="mailto:sungmin.yun11@gmail.com">sungmin.yun11@gmail.com</a>
-
-
+    <section id="service" aria-labelledby="service-title">
+      <h2 id="service-title">Academic Service</h2>
+      <div class="section-list">
+        <div class="item service-group">
+          <div class="item-left">
+            <h3 class="service-heading" id="committee-title">Program Committee</h3>
+            <ul class="reviewer-list" aria-labelledby="committee-title">
+              <li><b>ISCA 2026</b> — Lightweight Program Committee Member</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item service-group">
+          <div class="item-left">
+            <h3 class="service-heading" id="journal-review-title">Journal Review</h3>
+            <ul class="reviewer-list" aria-labelledby="journal-review-title">
+              <li>IEEE Transactions on Computers</li>
+              <li>IEEE Transactions on Circuits and Systems for Artificial Intelligence</li>
+              <li>IEEE Computer Architecture Letters</li>
+              <li>Future Generation Computer Systems</li>
+              <li>Journal of Supercomputing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
-    <style>
-      #contact {
-        text-align: center;
-        margin-top: 30px;
-      }
 
-      #contact .contact-title {
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
+    <section id="patents" aria-labelledby="patents-title">
+      <h2 id="patents-title">Patents</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Heterogeneous Computing Memory Device and Artificial Intelligence Computing System Including the Same</div>
+            <div class="item-subtle">US · KR (10-2025-0050877)</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Memory Device Capable of Dynamically Switching Between Error Correction Code and Error Detection Code in On-Die Error Correction Code</div>
+            <div class="item-subtle"><a href="https://patents.google.com/patent/KR102797560B1/en" target="_blank" rel="noopener noreferrer">KR (10-2021-0171922)</a> · <a href="https://patents.google.com/patent/WO2023101097A1/en" target="_blank" rel="noopener noreferrer">PCT (PCT/KR2021/019871)</a></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Memory Module and Computing System Including the Same</div>
+            <div class="item-subtle"><a href="https://patents.google.com/patent/US20250252074A1/en" target="_blank" rel="noopener noreferrer">US (19/017,235)</a> · <a href="https://patents.google.com/patent/KR20250121908A/en" target="_blank" rel="noopener noreferrer">KR (10-2024-0060980)</a> · <a href="https://patents.google.com/patent/CN120429257A/en" target="_blank" rel="noopener noreferrer">CN (202510116255.2)</a></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Memory Controller and Operation Method Thereof</div>
+            <div class="item-subtle"><a href="https://patents.google.com/patent/US20250321876A1/en" target="_blank" rel="noopener noreferrer">US (19/002,383)</a> · <a href="https://patents.google.com/patent/KR20250152344A/en" target="_blank" rel="noopener noreferrer">KR (10-2024-0050775)</a> · <a href="https://patents.google.com/patent/CN120832464A/en" target="_blank" rel="noopener noreferrer">CN (202411903289.8)</a></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Method and Apparatus for Memory Device Including Processing-in-Memory (PIM)</div>
+            <div class="item-subtle"><a href="https://www.patents-review.com/a/20260252262-electronic-device-method-processing-in-memory.html" target="_blank" rel="noopener noreferrer">US (19/446,242)</a> · KR (10-2025-0026131)</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Memory System and Operating Method Thereof</div>
+            <div class="item-subtle"><a href="https://patents.google.com/patent/KR20260002426A/en" target="_blank" rel="noopener noreferrer">KR (10-2025-0195434)</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      #contact a {
-        font-size: 1.3em;
-        margin-bottom: 40px;
-      }
-    </style>
   </main>
 
   <footer>
     <div class="container">
-      <div>Last updated: <time id="updated">—</time></div>
+      <div>Last updated: <time id="updated" datetime="2026-10-22">Oct 22, 2026</time></div>
     </div>
   </footer>
 
   
-  <script>
-    document.getElementById('updated').textContent =
-      new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-  </script>
+
 
 
 </body>
