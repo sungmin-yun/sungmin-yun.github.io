@@ -76,8 +76,8 @@
     .profile-cv svg { width: 20px; height: 20px; flex-shrink: 0; }
     .profile-cv:hover { border-color: var(--link); color: var(--link); text-decoration: none; }
     .profile-emails { display: grid; gap: 10px; width: fit-content; max-width: 100%; margin: 6px auto 0; }
-    .profile-emails a { display: flex; align-items: center; gap: 10px; padding: 4px 0; color: var(--text); font-family: inherit; font-size: 20px; font-weight: 500; letter-spacing: -0.2px; line-height: 1.5; }
-    .profile-emails a:hover { color: var(--link); }
+    .profile-emails a { display: flex; align-items: center; justify-content: center; text-align: center; gap: 10px; padding: 4px 0; color: var(--text); font-family: inherit; font-size: 20px; font-weight: 500; letter-spacing: -0.2px; line-height: 1.5; }
+    .profile-emails a:hover { color: var(--link); text-decoration: none; }
     .profile-emails svg { width: 20px; height: 20px; flex: 0 0 20px; color: var(--link); }
     .profile-emails span { min-width: 0; overflow-wrap: anywhere; }
     .pill { padding: 6px 12px; border-radius: 999px; font-size: 15px; }
@@ -113,13 +113,19 @@
     .item-left { min-width: 0; }
     .item-title { font-size: 18px; font-weight: 600; line-height: 1.7; }
     .item-subtle { color: var(--muted); font-size: 17px; margin-top: 4px; }
+    #experience .item-left, #education .item-left { padding-left: 8px; }
+    .experience-role, .education-degree { margin-top: 5px; color: var(--link); font-size: 18px; font-weight: 600; line-height: 1.7; }
+    .experience-role, .education-degree { padding-left: 12px; }
+    .experience-details { margin-top: 14px; margin-left: 12px; padding-left: 14px; border-left: 2px solid var(--line); color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .experience-details p { margin: 0 0 12px; }
+    .experience-details p:last-child { margin-bottom: 0; }
+    .experience-details strong { color: var(--text); font-weight: 600; }
     .item-right { color: var(--muted); flex-shrink: 0; max-width: 42%; font-size: 16px; padding-top: 2px; }
     .service-group .item-left { width: 100%; }
     .service-heading { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.7; color: var(--link); }
     .reviewer-list { list-style: none; margin: 12px 0 0; padding: 0; }
     .reviewer-list li { position: relative; padding: 12px 12px 12px 30px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 18px; line-height: 1.75; }
     .reviewer-list li:last-child { border-bottom: 0; }
-    .reviewer-list li::before { content: ''; position: absolute; left: 12px; top: 24px; width: 5px; height: 5px; border-radius: 50%; background: var(--link); }
     footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
 
     @media (min-width: 721px) and (max-width: 1000px) {
@@ -233,6 +239,80 @@
         </p>
       </div>
     </section>
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">NVIDIA</div>
+            <div class="experience-role">Senior Deep Learning Performance Architect</div>
+            <div class="experience-details">
+              <p><strong>Deep learning performance analysis.</strong> Analyze the performance of deep learning applications, focusing on AI acceleration and performance optimization.</p>
+            </div>
+          </div>
+          <div class="item-right"><time datetime="2026-09">Sep 2026</time> – Present</div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Seoul National University</div>
+            <div class="experience-role">Postdoctoral Researcher</div>
+            <div class="experience-details">
+              <p><strong>LLM serving systems.</strong> Developed system-level guidelines and optimizations for LLM serving, including Multi-head Latent Attention (MLA) and Mixture-of-Experts (MoE) architectures.</p>
+              <p><strong>Multi-LoRA inference at scale.</strong> Led the end-to-end design and implementation of an accelerator for Multi-LoRA inference.</p>
+              <p><strong>RAG pipeline acceleration.</strong> Co-designed search algorithms and hardware for large-scale retrieval-augmented generation pipelines.</p>
+            </div>
+          </div>
+          <div class="item-right"><time datetime="2025-09">Sep 2025</time> – <time datetime="2026-09">Sep 2026</time></div>
+        </div>
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Samsung Electronics</div>
+            <div class="experience-role">Intern</div>
+            <div class="experience-details">
+              <p><strong>HBM-PIM controller design.</strong> Designed and implemented a hardware controller in RTL for general matrix–vector multiplication (GEMV) using HBM-PIM.</p>
+              <p><strong>LLM accelerator architecture.</strong> Analyzed the architectural limitations of HBM-PIM and proposed Duplex, an LLM accelerator integrating custom HBMs with xPUs. This work was later published at MICRO 2024.</p>
+            </div>
+          </div>
+          <div class="item-right"><time datetime="2023-03">Mar 2023</time> – <time datetime="2023-08">Aug 2023</time></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <div class="section-list">
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Seoul National University</div>
+            <div class="education-degree">Ph.D. in Artificial Intelligence</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2020-08">Aug 2020</time> - <time datetime="2025-08">Aug 2025</time>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Yonsei University</div>
+            <div class="education-degree">B.S. in Integrated Information Technology</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2017-03">Mar 2017</time> - <time datetime="2020-02">Feb 2020</time>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-left">
+            <div class="item-title">Seoul Science High School</div>
+            <div class="education-degree">Science-focused High School</div>
+          </div>
+          <div class="item-right">
+            <time datetime="2014-03">Mar 2014</time> - <time datetime="2017-02">Feb 2017</time>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="publications">
       <h2>Publications</h2>
       <ul>
@@ -330,57 +410,6 @@
           <p class="pub-authors">Jaehyun Park, Byeongho Kim, <b>Sungmin Yun</b>, Eojin Lee, Minsoo Rhu, Jung Ho Ahn</p>
         </li>
       </ul>
-    </section>
-
-    <section id="education" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <div class="section-list">
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">Ph.D. in Artificial Intelligence</div>
-            <div class="item-subtle">Seoul National University</div>
-          </div>
-          <div class="item-right">
-            <time datetime="2020-08">Aug 2020</time> - <time datetime="2025-08">Aug 2025</time>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">B.S. in Integrated Information Technology</div>
-            <div class="item-subtle">Yonsei University</div>
-          </div>
-          <div class="item-right">
-            <time datetime="2017-03">Mar 2017</time> - <time datetime="2020-02">Feb 2020</time>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <div class="section-list">
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">Senior Deep Learning Performance Architect</div>
-            <div class="item-subtle">NVIDIA<br>Deep learning application performance analysis.</div>
-          </div>
-          <div class="item-right"><time datetime="2026-09">Sep 2026</time> – Present</div>
-        </div>
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">Postdoctoral Researcher</div>
-            <div class="item-subtle">Seoul National University<br>Led research on LLM serving systems, Multi-LoRA inference, and RAG pipeline acceleration.</div>
-          </div>
-          <div class="item-right"><time datetime="2025-09">Sep 2025</time> – <time datetime="2026-09">Sep 2026</time></div>
-        </div>
-        <div class="item">
-          <div class="item-left">
-            <div class="item-title">Samsung Electronics Internship</div>
-            <div class="item-subtle">Designed and implemented an HBM-PIM GEMV controller in RTL and developed the architecture behind Duplex (MICRO 2024).</div>
-          </div>
-          <div class="item-right"><time datetime="2023-03">Mar 2023</time> – <time datetime="2023-08">Aug 2023</time></div>
-        </div>
-      </div>
     </section>
 
 
