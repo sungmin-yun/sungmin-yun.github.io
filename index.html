@@ -57,7 +57,8 @@
       padding: 24px 0;
       margin-top: 44px;
     }
-    .avatar { width: 300px; max-width: 100%; height: 300px; border-radius: 20px; object-fit: cover; border: 1px solid var(--line); }
+    .portrait { width: 300px; max-width: 100%; height: 300px; overflow: hidden; border-radius: 20px; border: 1px solid var(--line); }
+    .avatar { width: 100%; height: 100%; object-fit: cover; transform: translate(-6px, 6px) scale(1.8); transform-origin: 50% 40%; }
     .hero > div { min-width: 0; }
     h1 { font-size: 46px; line-height: 1.2; letter-spacing: -1.2px; margin: 0 0 14px; }
     .accent { color: var(--accent); font-weight: 700; }
@@ -130,7 +131,7 @@
 
     @media (min-width: 721px) and (max-width: 1000px) {
       .hero { grid-template-columns: 240px minmax(0, 1fr); gap: 28px; }
-      .avatar { width: 240px; height: 240px; }
+      .portrait { width: 240px; height: 240px; }
       .profile-emails a { font-size: 18px; }
       .section-list .item { flex-wrap: wrap; gap: 6px 20px; }
       .item-right { max-width: 100%; }
@@ -139,12 +140,12 @@
       body { font-size: 17px; }
       .container { padding: 20px; }
       .hero { grid-template-columns: 1fr; gap: 24px; justify-items: center; padding: 16px 0; }
-      .avatar { width: 180px; height: 180px; border-radius: 16px; }
+      .portrait { width: 180px; height: 180px; border-radius: 16px; }
       h1, .tagline { text-align: center; }
       h1 { font-size: 38px; }
       .tagline { font-size: 19px; }
       .profile-column { width: min(300px, 100%); }
-      .profile-column .avatar { margin-inline: auto; }
+      .profile-column .portrait { margin-inline: auto; }
       .pill { font-size: 14px; }
       main > section { margin: 44px 0; scroll-margin-top: 20px; }
       main > .hero { margin-top: 26px; padding-top: 16px; }
@@ -183,7 +184,9 @@
   <main class="container">
     <section class="hero" id="about">
       <div class="profile-column">
-        <img class="avatar" src="profile.JPG" alt="Sungmin Yun" width="300" height="300" />
+        <div class="portrait">
+          <img class="avatar" src="profile.JPG" alt="Sungmin Yun" width="300" height="300" />
+        </div>
         <div class="profile-links" aria-label="Research and social profiles">
           <a class="profile-link" href="https://scholar.google.com/citations?user=QruQSDAAAAAJ&hl=en&oi=ao" target="_blank"
             rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
